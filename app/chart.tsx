@@ -10,7 +10,17 @@ type ChartProps = {
   totalAmount: number;
 };
 
-const STRATEGY = {
+interface Investment {
+  percentage: number;
+  label: string;
+  color: string;
+}
+
+interface Strategy {
+  [key: string]: Investment;
+}
+
+const STRATEGY: Strategy = {
   treasure: {
     percentage: 0.5,
     label: "Renda Fixa",
@@ -35,7 +45,7 @@ const STRATEGY = {
 
 const calculateInvestments = (totalAmount: number) => {
   if (!isNaN(totalAmount)) {
-    return Object.keys(STRATEGY).map((key) => {
+    return Object.keys(STRATEGY).map((key: string) => {
       return {
         label: STRATEGY[key].label,
         value: totalAmount * STRATEGY[key].percentage,

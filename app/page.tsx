@@ -7,8 +7,8 @@ export default function Home() {
   const [value, setValue] = useState<number | undefined>();
   const [totalAmount, setTotalAmount] = useState<number>();
 
-  const handleKeyPress = (event) => {
-    if (event.key === "Enter" && value) {
+  const handleKeyPress = (e: React.KeyboardEvent) => {
+    if (e.key === "Enter" && value) {
       setTotalAmount(value);
     }
   };

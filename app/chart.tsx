@@ -27,12 +27,17 @@ const STRATEGY: Strategy = {
     color: "rgb(141, 217, 126)",
   },
   stocks: {
-    percentage: 0.3,
+    percentage: 0.15,
     label: "Ações",
     color: "rgb(126, 151, 214)",
   },
+  USA: {
+    percentage: 0.2,
+    label: "Mercado Americano",
+    color: "rgb(36, 3, 252)",
+  },
   fiis: {
-    percentage: 0.1,
+    percentage: 0.05,
     label: "Fundos Imobiliários",
     color: "rgb(196, 61, 83)",
   },

@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import { Pie } from "react-chartjs-2";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 
@@ -20,31 +19,21 @@ interface Strategy {
   [key: string]: Investment;
 }
 
-const STRATEGY: Strategy = {
-  treasure: {
-    percentage: 0.5,
-    label: "Renda Fixa",
+export const STRATEGY: Strategy = {
+  investments: {
+    percentage: 0.4,
+    label: "Investir",
     color: "rgb(141, 217, 126)",
   },
-  stocks: {
-    percentage: 0.15,
-    label: "Ações",
+  costOfLiving: {
+    percentage: 0.4,
+    label: "Custo de vida",
     color: "rgb(126, 151, 214)",
   },
-  USA: {
+  consumables: {
     percentage: 0.2,
-    label: "Mercado Americano",
+    label: "Bens materiais",
     color: "rgb(36, 3, 252)",
-  },
-  fiis: {
-    percentage: 0.05,
-    label: "Fundos Imobiliários",
-    color: "rgb(196, 61, 83)",
-  },
-  bitcoin: {
-    percentage: 0.1,
-    label: "Bitcoin",
-    color: "rgb(222, 118, 58)",
   },
 };
 
@@ -62,14 +51,19 @@ const calculateInvestments = (totalAmount: number) => {
   return [];
 };
 
-export function Chart({ totalAmount }: ChartProps) {
+const chartConfig = {
+  responsive: true,
+}
+
+export function SalaryDistribution({ totalAmount }: ChartProps) {
   const investments = calculateInvestments(totalAmount);
 
   const chartData = {
     labels: investments.map((investment) => investment.label),
+    config: chartConfig,
     datasets: [
       {
-        label: "Porcentagem",
+        label: "R$",
         data: investments.map((investment) => investment.value),
         borderWidth: 1,
         backgroundColor: investments.map((investment) => investment.color),
@@ -78,7 +72,7 @@ export function Chart({ totalAmount }: ChartProps) {
   };
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+    <main className="flex flex-col items-center justify-between">
       <Pie data={chartData} />
     </main>
   );

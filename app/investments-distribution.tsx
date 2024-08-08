@@ -23,22 +23,22 @@ const STRATEGY: Strategy = {
     color: "rgb(141, 217, 126)",
   },
   stocks: {
-    percentage: 0.08,
+    percentage: 0.04,
     label: "Ações",
     color: "rgb(126, 151, 214)",
   },
   USA: {
-    percentage: 0.30,
+    percentage: 0.4,
     label: "Mercado Americano",
     color: "rgb(36, 3, 252)",
   },
   fiis: {
-    percentage: 0.02,
+    percentage: 0.01,
     label: "Fundos Imobiliários",
     color: "rgb(196, 61, 83)",
   },
   bitcoin: {
-    percentage: 0.09,
+    percentage: 0.04,
     label: "Bitcoin",
     color: "rgb(222, 118, 58)",
   },

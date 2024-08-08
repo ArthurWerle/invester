@@ -27,7 +27,7 @@ type StepsProps = {
   step: StepType
 } & ComponentProps
 
-export function Steps({ step, ...otherProps }: StepsProps) {
+function Steps({ step, ...otherProps }: StepsProps) {
   const StepComponent = COMPONENTS[step]
 
   return <StepComponent {...otherProps} />

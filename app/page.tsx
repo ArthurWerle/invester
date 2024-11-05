@@ -1,6 +1,6 @@
 "use client";
 
-import { INCOME_STRATEGY } from "./config";
+import { INCOME_STRATEGY } from "../config";
 import { InvestmentsDistribution } from "./investments-distribution";
 import { SalaryDistribution } from "./salary-distribution"
 import { useState } from "react";

@@ -1,4 +1,4 @@
-import { Strategy, Investment } from "./types";
+import { Strategy, Investment } from "./app/types";
 
 // Modify below with you're strategy!
 // This is just an example of a strategy, please don't take this as an advice for anything!
@@ -44,3 +44,10 @@ export const INVESTMENTS_STRATEGY: { [key: string]: Investment } = {
     color: "rgb(222, 118, 58)",
   },
 };
+
+const DEFAULT_STRATEGY = {
+  INVESTMENTS_STRATEGY,
+  INCOME_STRATEGY
+}
+
+export default DEFAULT_STRATEGY

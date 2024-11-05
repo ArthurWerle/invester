@@ -3,7 +3,8 @@
 import { Pie } from "react-chartjs-2";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { ComponentProps } from "./page";
-import { INVESTMENTS_STRATEGY } from "./config";
+import { getStrategy } from './configLoader'
+const { INVESTMENTS_STRATEGY } = getStrategy()
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
@@ -15,15 +16,15 @@ const calculateInvestments = (totalAmount: number) => {
         label: INVESTMENTS_STRATEGY[key].label,
         value: totalAmount * INVESTMENTS_STRATEGY[key].percentage,
         color: INVESTMENTS_STRATEGY[key].color,
-      };
-    });
+      }
+    })
   }
 
-  return [];
+  return []
 };
 
 export function InvestmentsDistribution({ totalAmount }: ComponentProps) {
-  const investments = calculateInvestments(totalAmount);
+  const investments = calculateInvestments(totalAmount)
 
   const chartData = {
     labels: investments.map((investment) => investment.label),
@@ -35,11 +36,11 @@ export function InvestmentsDistribution({ totalAmount }: ComponentProps) {
         backgroundColor: investments.map((investment) => investment.color),
       },
     ],
-  };
+  }
 
   return (
     <main className="flex flex-col items-center justify-between">
       <Pie data={chartData} />
     </main>
-  );
+  )
 }

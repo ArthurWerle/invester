@@ -1,7 +1,8 @@
 "use client";
 
+import { INCOME_STRATEGY } from "./config";
 import { InvestmentsDistribution } from "./investments-distribution";
-import { SalaryDistribution, STRATEGY as SALARY_STRATEGY } from "./salary-distribution"
+import { SalaryDistribution } from "./salary-distribution"
 import { useState } from "react";
 
 enum StepType {
@@ -10,8 +11,8 @@ enum StepType {
 }
 
 const STEP_LABEL = {
-  [StepType.InvestmentsDistribution]: 'Essa é a sua divisão de investimentos',
-  [StepType.SalaryDistribution]: 'Quanto foi o seu salário?'
+  [StepType.InvestmentsDistribution]: 'This is your investments division',
+  [StepType.SalaryDistribution]: 'How much was your income?'
 }
 
 const COMPONENTS = {
@@ -44,7 +45,7 @@ export default function Home() {
   };
 
   const hasValue = totalAmount !== undefined && totalAmount > 0;
-  const investmentsAmount = hasValue ? totalAmount * SALARY_STRATEGY.investments.percentage : 0
+  const investmentsAmount = hasValue ? totalAmount * INCOME_STRATEGY.investments.percentage : 0
 
   return (
     <main className="flex min-h-screen flex-col items-center p-24">

@@ -3,59 +3,18 @@
 import { Pie } from "react-chartjs-2";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { ComponentProps } from "./page";
+import { INVESTMENTS_STRATEGY } from "./config";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-interface Investment {
-  percentage: number;
-  label: string;
-  color: string;
-}
-
-interface Strategy {
-  [key: string]: Investment;
-}
-
-const STRATEGY: Strategy = {
-  treasure: {
-    percentage: 0.5,
-    label: "Renda Fixa",
-    color: "rgb(141, 217, 126)",
-  },
-  stocks: {
-    percentage: 0.04,
-    label: "Ações",
-    color: "rgb(126, 151, 214)",
-  },
-  USA: {
-    percentage: 0.4,
-    label: "Mercado Americano",
-    color: "rgb(36, 3, 252)",
-  },
-  fiis: {
-    percentage: 0.01,
-    label: "Fundos Imobiliários",
-    color: "rgb(196, 61, 83)",
-  },
-  bitcoin: {
-    percentage: 0.04,
-    label: "Bitcoin",
-    color: "rgb(222, 118, 58)",
-  },
-  eth: {
-    percentage: 0.01,
-    label: "Ethereum",
-    color: "rgb(255, 255, 255)",
-  },
-};
 
 const calculateInvestments = (totalAmount: number) => {
   if (!isNaN(totalAmount)) {
-    return Object.keys(STRATEGY).map((key: string) => {
+    return Object.keys(INVESTMENTS_STRATEGY).map((key: string) => {
       return {
-        label: STRATEGY[key].label,
-        value: totalAmount * STRATEGY[key].percentage,
-        color: STRATEGY[key].color,
+        label: INVESTMENTS_STRATEGY[key].label,
+        value: totalAmount * INVESTMENTS_STRATEGY[key].percentage,
+        color: INVESTMENTS_STRATEGY[key].color,
       };
     });
   }
